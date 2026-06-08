@@ -1,0 +1,146 @@
+additionalProperties:
+  formFields:
+    - default: ""
+      envKey: MANAGEMENT_PASSWORD
+      labelEn: "Management Password"
+      labelZh: "管理密码"
+      label:
+        en: "Management Password"
+        es-es: "Management Password"
+        ja: "Management Password"
+        ms: "Management Password"
+        pt-br: "Management Password"
+        ru: "Management Password"
+        ko: "Management Password"
+        zh-Hant: "管理密码"
+        zh: "管理密码"
+        tr: "Management Password"
+      random: true
+      required: true
+      type: password
+    - default: ""
+      envKey: CLIENT_API_KEY
+      labelEn: "Client API Key"
+      labelZh: "客户端 API Key"
+      label:
+        en: "Client API Key"
+        es-es: "Client API Key"
+        ja: "Client API Key"
+        ms: "Client API Key"
+        pt-br: "Client API Key"
+        ru: "Client API Key"
+        ko: "Client API Key"
+        zh-Hant: "客户端 API Key"
+        zh: "客户端 API Key"
+        tr: "Client API Key"
+      random: true
+      required: true
+      type: password
+    - default: 8317
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: "Web UI Port"
+      labelZh: "Web UI 端口"
+      label:
+        en: "Web UI Port"
+        es-es: "Web UI Port"
+        ja: "Web UIポート"
+        ms: "Web UI Port"
+        pt-br: "Web UI Port"
+        ru: "Web UI Port"
+        ko: "Web UI Port"
+        zh-Hant: "Web UI 端口"
+        zh: "Web UI 端口"
+        tr: "Web UI Port"
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8085
+      envKey: PANEL_APP_PORT_GEMINI_CALLBACK
+      labelEn: "Gemini OAuth Callback Port"
+      labelZh: "Gemini OAuth 回调端口"
+      label:
+        en: "Gemini OAuth Callback Port"
+        es-es: "Gemini OAuth Callback Port"
+        ja: "Gemini OAuth Callback Port"
+        ms: "Gemini OAuth Callback Port"
+        pt-br: "Gemini OAuth Callback Port"
+        ru: "Gemini OAuth Callback Port"
+        ko: "Gemini OAuth Callback Port"
+        zh-Hant: "Gemini OAuth 回调端口"
+        zh: "Gemini OAuth 回调端口"
+        tr: "Gemini OAuth Callback Port"
+      required: true
+      rule: paramPort
+      type: number
+    - default: 1455
+      envKey: PANEL_APP_PORT_CODEX_CALLBACK
+      labelEn: "Codex OAuth Callback Port"
+      labelZh: "Codex OAuth 回调端口"
+      label:
+        en: "Codex OAuth Callback Port"
+        es-es: "Codex OAuth Callback Port"
+        ja: "Codex OAuth Callback Port"
+        ms: "Codex OAuth Callback Port"
+        pt-br: "Codex OAuth Callback Port"
+        ru: "Codex OAuth Callback Port"
+        ko: "Codex OAuth Callback Port"
+        zh-Hant: "Codex OAuth 回调端口"
+        zh: "Codex OAuth 回调端口"
+        tr: "Codex OAuth Callback Port"
+      required: true
+      rule: paramPort
+      type: number
+    - default: 54545
+      envKey: PANEL_APP_PORT_CLAUDE_CALLBACK
+      labelEn: "Claude OAuth Callback Port"
+      labelZh: "Claude OAuth 回调端口"
+      label:
+        en: "Claude OAuth Callback Port"
+        es-es: "Claude OAuth Callback Port"
+        ja: "Claude OAuth Callback Port"
+        ms: "Claude OAuth Callback Port"
+        pt-br: "Claude OAuth Callback Port"
+        ru: "Claude OAuth Callback Port"
+        ko: "Claude OAuth Callback Port"
+        zh-Hant: "Claude OAuth 回调端口"
+        zh: "Claude OAuth 回调端口"
+        tr: "Claude OAuth Callback Port"
+      required: true
+      rule: paramPort
+      type: number
+    - default: 51121
+      envKey: PANEL_APP_PORT_ANTIGRAVITY_CALLBACK
+      labelEn: "Antigravity OAuth Callback Port"
+      labelZh: "Antigravity OAuth 回调端口"
+      label:
+        en: "Antigravity OAuth Callback Port"
+        es-es: "Antigravity OAuth Callback Port"
+        ja: "Antigravity OAuth Callback Port"
+        ms: "Antigravity OAuth Callback Port"
+        pt-br: "Antigravity OAuth Callback Port"
+        ru: "Antigravity OAuth Callback Port"
+        ko: "Antigravity OAuth Callback Port"
+        zh-Hant: "Antigravity OAuth 回调端口"
+        zh: "Antigravity OAuth 回调端口"
+        tr: "Antigravity OAuth Callback Port"
+      required: true
+      rule: paramPort
+      type: number
+    - default: 56121
+      envKey: PANEL_APP_PORT_XAI_CALLBACK
+      labelEn: "xAI OAuth Callback Port"
+      labelZh: "xAI OAuth 回调端口"
+      label:
+        en: "xAI OAuth Callback Port"
+        es-es: "xAI OAuth Callback Port"
+        ja: "xAI OAuth Callback Port"
+        ms: "xAI OAuth Callback Port"
+        pt-br: "xAI OAuth Callback Port"
+        ru: "xAI OAuth Callback Port"
+        ko: "xAI OAuth Callback Port"
+        zh-Hant: "xAI OAuth 回调端口"
+        zh: "xAI OAuth 回调端口"
+        tr: "xAI OAuth Callback Port"
+      required: true
+      rule: paramPort
+      type: number

@@ -1,0 +1,32 @@
+name: CLIProxyAPI
+tags:
+  - Tool
+title: "CLI Proxy API"
+description: "为 CLI 模型提供 OpenAI/Gemini/Claude/Codex/Grok 兼容 API 接口的代理服务器"
+additionalProperties:
+  key: cliproxyapi
+  name: CLIProxyAPI
+  tags:
+    - Tool
+  shortDescZh: "为 CLI 模型提供 OpenAI/Gemini/Claude/Codex/Grok 兼容 API 接口的代理服务器"
+  shortDescEn: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+  description:
+    en: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+    es-es: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+    ja: "CLIモデル向けのOpenAI/Gemini/Claude/Codex/Grok互換APIプロキシサーバー"
+    ms: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+    pt-br: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+    ru: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+    ko: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+    zh-Hant: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+    zh: "为 CLI 模型提供 OpenAI/Gemini/Claude/Codex/Grok 兼容 API 接口的代理服务器"
+    tr: "OpenAI/Gemini/Claude/Codex/Grok compatible API proxy server for CLI models"
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  architectures:
+    - amd64
+    - arm64
+  website: https://github.com/router-for-me/CLIProxyAPI
+  github: https://github.com/router-for-me/CLIProxyAPI
+  document: https://help.router-for.me/
