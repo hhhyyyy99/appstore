@@ -1,0 +1,142 @@
+additionalProperties:
+  formFields:
+    - default: sub2api
+      envKey: POSTGRES_PASSWORD
+      labelEn: "Database Password"
+      labelZh: "数据库密码"
+      label:
+        en: "Database Password"
+        es-es: "Database Password"
+        ja: "Database Password"
+        ms: "Database Password"
+        pt-br: "Database Password"
+        ru: "Database Password"
+        ko: "Database Password"
+        zh-Hant: "数据库密码"
+        zh: "数据库密码"
+        tr: "Database Password"
+      random: true
+      required: true
+      type: password
+    - default: sub2api
+      envKey: REDIS_PASSWORD
+      labelEn: "Redis Password"
+      labelZh: "Redis 密码"
+      label:
+        en: "Redis Password"
+        es-es: "Redis Password"
+        ja: "Redis Password"
+        ms: "Redis Password"
+        pt-br: "Redis Password"
+        ru: "Redis Password"
+        ko: "Redis Password"
+        zh-Hant: "Redis 密码"
+        zh: "Redis 密码"
+        tr: "Redis Password"
+      random: true
+      required: true
+      type: password
+    - default: admin@sub2api.local
+      envKey: ADMIN_EMAIL
+      labelEn: "Admin Email"
+      labelZh: "管理员邮箱"
+      label:
+        en: "Admin Email"
+        es-es: "Admin Email"
+        ja: "Admin Email"
+        ms: "Admin Email"
+        pt-br: "Admin Email"
+        ru: "Admin Email"
+        ko: "Admin Email"
+        zh-Hant: "管理员邮箱"
+        zh: "管理员邮箱"
+        tr: "Admin Email"
+      required: true
+      type: text
+    - default: sub2api
+      envKey: ADMIN_PASSWORD
+      labelEn: "Admin Password"
+      labelZh: "管理员密码"
+      label:
+        en: "Admin Password"
+        es-es: "Admin Password"
+        ja: "Admin Password"
+        ms: "Admin Password"
+        pt-br: "Admin Password"
+        ru: "Admin Password"
+        ko: "Admin Password"
+        zh-Hant: "管理员密码"
+        zh: "管理员密码"
+        tr: "Admin Password"
+      random: true
+      required: true
+      type: password
+    - default: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+      envKey: JWT_SECRET
+      labelEn: "JWT Secret"
+      labelZh: "JWT Secret"
+      label:
+        en: "JWT Secret"
+        es-es: "JWT Secret"
+        ja: "JWT Secret"
+        ms: "JWT Secret"
+        pt-br: "JWT Secret"
+        ru: "JWT Secret"
+        ko: "JWT Secret"
+        zh-Hant: "JWT Secret"
+        zh: "JWT Secret"
+        tr: "JWT Secret"
+      required: true
+      type: password
+    - default: fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210
+      envKey: TOTP_ENCRYPTION_KEY
+      labelEn: "TOTP Encryption Key"
+      labelZh: "TOTP Encryption Key"
+      label:
+        en: "TOTP Encryption Key"
+        es-es: "TOTP Encryption Key"
+        ja: "TOTP Encryption Key"
+        ms: "TOTP Encryption Key"
+        pt-br: "TOTP Encryption Key"
+        ru: "TOTP Encryption Key"
+        ko: "TOTP Encryption Key"
+        zh-Hant: "TOTP Encryption Key"
+        zh: "TOTP Encryption Key"
+        tr: "TOTP Encryption Key"
+      required: true
+      type: password
+    - default: Asia/Shanghai
+      envKey: TZ
+      labelEn: Timezone
+      labelZh: "时区"
+      label:
+        en: Timezone
+        es-es: Timezone
+        ja: Timezone
+        ms: Timezone
+        pt-br: Timezone
+        ru: Timezone
+        ko: Timezone
+        zh-Hant: "时区"
+        zh: "时区"
+        tr: Timezone
+      required: true
+      type: text
+    - default: 8080
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: "Web UI Port"
+      labelZh: "Web UI 端口"
+      label:
+        en: "Web UI Port"
+        es-es: "Puerto web"
+        ja: "Web UIポート"
+        ms: "Port Web UI"
+        pt-br: "Porta da Web UI"
+        ru: "Порт веб-интерфейса"
+        ko: "웹 UI 포트"
+        zh-Hant: "Web UI 埠"
+        zh: "Web UI 端口"
+        tr: "Web UI Bağlantı Noktası"
+      required: true
+      rule: paramPort
+      type: number
