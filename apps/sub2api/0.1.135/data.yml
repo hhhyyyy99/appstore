@@ -71,7 +71,7 @@ additionalProperties:
       random: true
       required: true
       type: password
-    - default: sub2api
+    - default: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
       envKey: JWT_SECRET
       labelEn: "JWT Secret"
       labelZh: "JWT Secret"
@@ -89,7 +89,7 @@ additionalProperties:
       random: true
       required: true
       type: password
-    - default: sub2api
+    - default: fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210
       envKey: TOTP_ENCRYPTION_KEY
       labelEn: "TOTP Encryption Key"
       labelZh: "TOTP Encryption Key"
