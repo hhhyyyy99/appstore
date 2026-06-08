@@ -86,7 +86,6 @@ additionalProperties:
         zh-Hant: "JWT Secret"
         zh: "JWT Secret"
         tr: "JWT Secret"
-      random: true
       required: true
       type: password
     - default: fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210
@@ -104,7 +103,6 @@ additionalProperties:
         zh-Hant: "TOTP Encryption Key"
         zh: "TOTP Encryption Key"
         tr: "TOTP Encryption Key"
-      random: true
       required: true
       type: password
     - default: Asia/Shanghai
