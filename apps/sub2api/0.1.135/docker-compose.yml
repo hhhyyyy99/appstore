@@ -1,0 +1,128 @@
+services:
+  sub2api:
+    image: weishaw/sub2api:0.1.135
+    container_name: "${CONTAINER_NAME}"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - "${PANEL_APP_PORT_HTTP}:8080"
+    environment:
+      AUTO_SETUP: "true"
+      SERVER_HOST: 0.0.0.0
+      SERVER_PORT: 8080
+      SERVER_MODE: release
+      RUN_MODE: standard
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USER: sub2api
+      DATABASE_PASSWORD: "${POSTGRES_PASSWORD}"
+      DATABASE_DBNAME: sub2api
+      DATABASE_SSLMODE: disable
+      DATABASE_MAX_OPEN_CONNS: 50
+      DATABASE_MAX_IDLE_CONNS: 10
+      DATABASE_CONN_MAX_LIFETIME_MINUTES: 30
+      DATABASE_CONN_MAX_IDLE_TIME_MINUTES: 5
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: "${REDIS_PASSWORD}"
+      REDIS_DB: 0
+      REDIS_POOL_SIZE: 1024
+      REDIS_MIN_IDLE_CONNS: 10
+      REDIS_ENABLE_TLS: "false"
+      ADMIN_EMAIL: "${ADMIN_EMAIL}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      JWT_SECRET: "${JWT_SECRET}"
+      JWT_EXPIRE_HOUR: 24
+      TOTP_ENCRYPTION_KEY: "${TOTP_ENCRYPTION_KEY}"
+      TZ: "${TZ}"
+      SECURITY_URL_ALLOWLIST_ENABLED: "false"
+      SECURITY_URL_ALLOWLIST_ALLOW_INSECURE_HTTP: "false"
+      SECURITY_URL_ALLOWLIST_ALLOW_PRIVATE_HOSTS: "false"
+      UPDATE_PROXY_URL: ""
+      GATEWAY_OPENAI_RESPONSE_HEADER_TIMEOUT: 0
+      GATEWAY_OPENAI_HTTP2_ENABLED: "true"
+      GATEWAY_OPENAI_HTTP2_ALLOW_PROXY_FALLBACK_TO_HTTP1: "true"
+      GATEWAY_OPENAI_HTTP2_FALLBACK_ERROR_THRESHOLD: 2
+      GATEWAY_OPENAI_HTTP2_FALLBACK_WINDOW_SECONDS: 60
+      GATEWAY_OPENAI_HTTP2_FALLBACK_TTL_SECONDS: 600
+      GATEWAY_IMAGE_STREAM_DATA_INTERVAL_TIMEOUT: 900
+      GATEWAY_IMAGE_STREAM_KEEPALIVE_INTERVAL: 10
+      GATEWAY_IMAGE_CONCURRENCY_ENABLED: "false"
+      GATEWAY_IMAGE_CONCURRENCY_MAX_CONCURRENT_REQUESTS: 0
+      GATEWAY_IMAGE_CONCURRENCY_OVERFLOW_MODE: reject
+      GATEWAY_IMAGE_CONCURRENCY_WAIT_TIMEOUT_SECONDS: 30
+      GATEWAY_IMAGE_CONCURRENCY_MAX_WAITING_REQUESTS: 100
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - "-q"
+        - "-T"
+        - 5
+        - "-O"
+        - /dev/null
+        - http://localhost:8080/health
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    labels:
+      createdBy: Apps
+  postgres:
+    image: postgres:18-alpine
+    container_name: "${CONTAINER_NAME}-postgres"
+    restart: always
+    networks:
+      - 1panel-network
+    environment:
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_USER: sub2api
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: sub2api
+      TZ: "${TZ}"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - "pg_isready -U sub2api -d sub2api"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    labels:
+      createdBy: Apps
+  redis:
+    image: redis:8-alpine
+    container_name: "${CONTAINER_NAME}-redis"
+    restart: always
+    networks:
+      - 1panel-network
+    environment:
+      TZ: "${TZ}"
+      REDISCLI_AUTH: "${REDIS_PASSWORD}"
+    volumes:
+      - ./redis_data:/data
+    command: "sh -c 'redis-server --save 60 1 --appendonly yes --appendfsync everysec ${REDIS_PASSWORD:+--requirepass \"$REDIS_PASSWORD\"}'"
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    labels:
+      createdBy: Apps
+networks:
+  1panel-network:
+    external: true
