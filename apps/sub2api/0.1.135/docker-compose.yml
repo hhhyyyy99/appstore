@@ -13,7 +13,7 @@ services:
       SERVER_PORT: 8080
       SERVER_MODE: release
       RUN_MODE: standard
-      DATABASE_HOST: postgres
+      DATABASE_HOST: "${CONTAINER_NAME}-postgres"
       DATABASE_PORT: 5432
       DATABASE_USER: sub2api
       DATABASE_PASSWORD: "${POSTGRES_PASSWORD}"
@@ -23,7 +23,7 @@ services:
       DATABASE_MAX_IDLE_CONNS: 10
       DATABASE_CONN_MAX_LIFETIME_MINUTES: 30
       DATABASE_CONN_MAX_IDLE_TIME_MINUTES: 5
-      REDIS_HOST: redis
+      REDIS_HOST: "${CONTAINER_NAME}-redis"
       REDIS_PORT: 6379
       REDIS_PASSWORD: "${REDIS_PASSWORD}"
       REDIS_DB: 0
@@ -56,9 +56,9 @@ services:
     volumes:
       - ./data:/app/data
     depends_on:
-      postgres:
+      sub2api-postgres:
         condition: service_healthy
-      redis:
+      sub2api-redis:
         condition: service_healthy
     healthcheck:
       test:
@@ -76,7 +76,7 @@ services:
       start_period: 30s
     labels:
       createdBy: Apps
-  postgres:
+  sub2api-postgres:
     image: postgres:18-alpine
     container_name: "${CONTAINER_NAME}-postgres"
     restart: always
@@ -97,10 +97,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 10s
+      start_period: 60s
     labels:
       createdBy: Apps
-  redis:
+  sub2api-redis:
     image: redis:8-alpine
     container_name: "${CONTAINER_NAME}-redis"
     restart: always
